@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sobre — João Marcelo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=IBM+Plex+Sans:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  :root {
+    --red: #E63329;
+    --black: #ffffff;
+    --white: #000000;
+    --gray: #e3e3e3;
+    --border: 1.5px solid #c2c2c2;
+  }
+
+  body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    background: var(--white);
+    color: var(--black);
+    padding: 100px 40px 40px 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .nav-header {
+    position: fixed;
+    top: 0; left: 0; width: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(5px);
+    border-bottom: var(--border);
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .nav-logo {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--black);
+    text-decoration: none;
+  }
+
+  .nav-menu {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+  }
+
+  .nav-menu a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--gray);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-menu a:hover { color: var(--red); }
+
+
+  main {
+    padding: 40px 0 60px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    border-bottom: var(--border);
+  }
+
+  h1 {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: clamp(38px, 6vw, 64px);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+  }
+
+  h1 span { color: var(--red); }
+
+  .texto-sobre p {
+    font-size: 18px;
+    font-weight: 300;
+    color: #eeeeee;
+    margin-bottom: 24px;
+  }
+
+  .formacao {
+    margin-top: 20px;
+  }
+
+  .formacao h2 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--red);
+    margin-bottom: 16px;
+  }
+
+  .item-cronograma {
+    padding-bottom: 16px;
+    border-bottom: 1px dashed #444;
+    margin-bottom: 16px;
+  }
+
+  .item-cronograma:last-child { border: none; }
+  .item-cronograma h3 { font-size: 16px; font-weight: 500; }
+  .item-cronograma p { font-size: 13px; color: var(--gray); }
+
+  footer {
+    padding-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+  }
+
+  .links-redes {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: right;
+  }
+
+  .links-redes a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--black);
+    text-decoration: none;
+  }
+
+  .links-redes a:hover { text-decoration: underline; color: var(--red); }
+
+  @media (max-width: 768px) {
+    body { padding: 80px 20px 20px 20px; }
+    .nav-header { padding: 15px 20px; }
+    main, footer { grid-template-columns: 1fr; gap: 32px; }
+    .links-redes { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+
+  <nav class="nav-header">
+    <a href="index.html" class="nav-logo">JMC //</a>
+    <ul class="nav-menu">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="sobre.html" style="color: var(--red);">Sobre</a></li>
+      <li><a href="projetos.html">Projetos</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div>
+      <h1>Sobre<br><span>mim:</span></h1>
+    </div>
+    
+    <div class="texto-sobre">
+      <p>
+        Sou estudante de Ciência da Computação na CESAR School e de Sistemas de Informação na UFPE e me interesso por tudo que envolva tecnologia e design.
+      </p>
+      <p>
+        Pra mim, a experiência visual e funcional são tão importantes quanto uma boa arquitetura do código. Por isso, tento unir essas características para fazer algo único.
+      </p>
+
+      <section class="formacao">
+        <h2>Educação &amp; Projetos</h2>
+        <div class="item-cronograma">
+          <h3>Graduações</h3>
+          <p>Cursando Ciência da Computação - CESAR School &amp; Sistemas de Informação — UFPE</p>
+        </div>
+        <div class="item-cronograma">
+          <h3>Projeto 1 (CPA 4All)</h3>
+          <p>Desenvolvimento e design de hardware/software assistivo voltado para acessibilidade física.</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="contato">
+      <p>Onde me encontrar: <a href="mailto:jmfcc@cesar.school">jmfcc@cesar.school</a></p>
+    </div>
+    <div class="links-redes">
+      <a href="https://github.com/jmfccasado" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/joaomarcelocasado" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </footer>
+
+</body>
+</html>

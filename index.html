@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>João Marcelo Casado — Portfólio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=IBM+Plex+Sans:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  :root {
+    --red: #E63329;
+    --black: #ffffff;
+    --white: #000000;
+    --gray: #e3e3e3;
+    --border: 1.5px solid #c2c2c2;
+  }
+
+  body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    background: var(--white);
+    color: var(--black);
+    padding: 100px 40px 40px 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .nav-header {
+    position: fixed;
+    top: 0; left: 0; width: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(5px);
+    border-bottom: var(--border);
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .nav-logo {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--black);
+    text-decoration: none;
+  }
+
+  .nav-menu {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+  }
+
+  .nav-menu a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--gray);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-menu a:hover { color: var(--red); }
+
+  /* ── INTRO / HERO ── */
+  header {
+    padding: 40px 0 60px 0;
+    border-bottom: var(--border);
+  }
+
+  h1 {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: clamp(38px, 6vw, 64px);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 24px;
+  }
+
+  .subtitle {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gray);
+    margin-bottom: 16px;
+  }
+
+  .bio {
+    font-size: 18px;
+    font-weight: 300;
+    max-width: 600px;
+    color: #eeeeee;
+  }
+
+  .secao-focos {
+    padding: 40px 0;
+    border-bottom: var(--border);
+  }
+
+  .titulo-focos {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+
+  .titulo-focos span { color: var(--red); }
+
+  .focos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+
+  .foco-item {
+    cursor: pointer;
+    padding: 16px;
+    border: 1px solid transparent;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .foco-item:hover {
+    border-color: var(--red);
+    background: rgba(230, 51, 41, 0.05);
+  }
+
+  .foco-item.ativo {
+    border-color: var(--border);
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .foco-item h3 {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  .foco-item p {
+    font-size: 14px;
+    color: #e4e4e4;
+    font-weight: 300;
+  }
+
+  .instrucao-filtro {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--gray);
+    margin-top: 12px;
+  }
+
+  .section-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 32px 0 16px 0;
+    color: var(--red);
+  }
+
+  .grid-projetos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: var(--border);
+    border-left: var(--border);
+    margin-bottom: 60px;
+  }
+
+  .card {
+    border-right: var(--border);
+    border-bottom: var(--border);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: opacity 0.3s ease, transform 0.2s;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .card:hover {
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .card h4 {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 24px;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+    margin-bottom: 12px;
+  }
+
+  .card h4 span { color: var(--red); }
+
+  .card p {
+    font-size: 14px;
+    color: #ffffff;
+    font-weight: 300;
+    margin-bottom: 24px;
+  }
+
+  .tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .tags span {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    padding: 4px 8px;
+    background: rgba(147, 147, 147, 0.05);
+    color: var(--black);
+  }
+
+  footer {
+    border-top: var(--border);
+    padding-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+  }
+
+  .contato p { font-size: 16px; }
+  .contato a { color: var(--black); font-weight: 500; text-decoration: underline; }
+  .contato a:hover { color: var(--red); }
+
+  .links-redes {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: right;
+  }
+
+  .links-redes a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--black);
+    text-decoration: none;
+  }
+
+  .links-redes a:hover { text-decoration: underline; color: var(--red); }
+
+  @media (max-width: 768px) {
+    body { padding: 80px 20px 20px 20px; }
+    .nav-header { padding: 15px 20px; }
+    .focos, .grid-projetos, footer { grid-template-columns: 1fr; gap: 24px; }
+    .links-redes { text-align: left; margin-top: 16px; }
+    .card { padding: 24px; }
+  }
+</style>
+</head>
+<body>
+
+  <nav class="nav-header">
+    <a href="index.html" class="nav-logo">JMC //</a>
+    <ul class="nav-menu">
+      <li><a href="index.html" style="color: var(--red);">Início</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="projetos.html">Projetos</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <header>
+    <p class="subtitle">Estudante de Ciência da Computação &amp; Sistemas de Informação</p>
+    <h1>João Marcelo Casado</h1>
+    <p class="bio">
+      Olá, sou João Marcelo! Gosto de criar identidades visuais, tenho certa experiência com prototipagem e programação (na medida do possível).
+    </p>
+  </header>
+
+  <!-- SEÇÃO DE INTERESSES -->
+  <section class="secao-focos">
+    <h2 class="titulo-focos"><span>Meus</span> Interesses</h2>
+    <div class="focos">
+      <div class="foco-item" id="btn-programacao" onclick="filtrarProjetos('programacao')">
+        <h3>01. Programação</h3>
+        <p>Estudo diferentes linguagens de programação para agregar ao meu currículo.</p>
+        <p class="instrucao-filtro">Clique para filtrar projetos ↑</p>
+      </div>
+      <div class="foco-item" id="btn-design" onclick="filtrarProjetos('design')">
+        <h3>02. Design Gráfico</h3>
+        <p>Nas horas vagas, gosto de criar identidades visuais, tipografias e logotipos.</p>
+        <p class="instrucao-filtro">Clique para filtrar projetos ↑</p>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <p class="section-title">Projetos em Destaque</p>
+    <div class="grid-projetos">
+      
+      <a href="projetos.html?projeto=semijoias" class="card" data-category="design">
+        <div>
+          <h4>Identidade visual para loja de <span>semijoias</span></h4>
+          <p>Pacote visual com cores harmônicas, tipografia customizada e assets para mídias sociais.</p>
+        </div>
+        <div class="tags">
+          <span>Illustrator + Photoshop</span>
+        </div>
+      </a>
+
+      <a href="projetos.html?projeto=projeto1" class="card" data-category="design">
+        <div>
+          <h4>Identidade Visual para a disciplina de <span>Projeto 1</span></h4>
+          <p>Sistema visual completo feito para um controle de jogos acessível, focado em cores divertidas mas adaptadas para indicar conforto e acolhimento.</p>
+        </div>
+        <div class="tags">
+          <span>Illustrator + Photoshop</span>
+        </div>
+      </a>
+
+      <a href="projetos.html?projeto=hyrox" class="card" data-category="programacao">
+        <div>
+          <h4>Projeto em <span>Python</span></h4>
+          <p>Guia de treinos HYROX feito em grupo com python para a disciplina de Fundamentos de Programação.</p>
+        </div>
+        <div class="tags">
+          <span>Python</span>
+        </div>
+      </a>
+
+      <a href="projetos.html?projeto=cpa" class="card" data-category="programacao">
+        <div>
+          <h4>CPA 4All - <span>Projeto 1</span></h4>
+          <p>Controle acessível para pessoas com limitações físicas, fazendo uso de botões ampliados, scrolls adaptados e alavancas ampliadas.</p>
+        </div>
+        <div class="tags">
+          <span>Arduino + Illustrator</span>
+        </div>
+      </a>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="contato">
+      <p>Onde me encontrar: <a href="mailto:jmfcc@cesar.school">jmfcc@cesar.school</a></p>
+    </div>
+    <div class="links-redes">
+      <a href="https://github.com/jmfccasado" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/joaomarcelocasado" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script>
+    let filtroAtivo = null;
+
+    function filtrarProjetos(categoria) {
+      const cards = document.querySelectorAll('.card');
+      const btnProg = document.getElementById('btn-programacao');
+      const btnDesign = document.getElementById('btn-design');
+
+      if (filtroAtivo === categoria) {
+        cards.forEach(card => {
+          card.style.display = 'flex';
+          card.style.opacity = '1';
+        });
+        btnProg.classList.remove('ativo');
+        btnDesign.classList.remove('ativo');
+        filtroAtivo = null;
+      } else {
+        cards.forEach(card => {
+          if (card.getAttribute('data-category') === categoria) {
+            card.style.display = 'flex';
+            card.style.opacity = '1';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        if (categoria === 'programacao') {
+          btnProg.classList.add('ativo');
+          btnDesign.classList.remove('ativo');
+        } else {
+          btnDesign.classList.add('ativo');
+          btnProg.classList.remove('ativo');
+        }
+        filtroAtivo = categoria;
+      }
+    }
+  </script>
+</body>
+</html>
